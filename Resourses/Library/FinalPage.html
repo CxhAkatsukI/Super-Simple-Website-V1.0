@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinalPage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <!-- 导入线上字体 -->
+
+    <style>
+        @keyframes Background_Manifesting_Animation {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+    <!-- 设定背景出现动画 -->
+
+    <style>
+        @keyframes Background_Fading_Animation {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+    <!-- 设定背景消失动画 -->
+
+    <style>
+        @font-face {
+            font-family: Pixel_Font;
+            src: url(./fusion-pixel-10px-monospaced-zh_hans.woff2);
+        }
+    </style>
+    <!-- 导入本地字体 -->
+
+    <style>
+        #body{
+            background-image: url(MovingStars.gif);
+        }
+    </style>
+
+</head>
+
+<body id="body">
+    <script>
+        var Title_Content = document.createElement('div');
+        Title_Content.setAttribute('id', 'Title_Content');
+        var body = document.getElementById('body')
+        body.appendChild(Title_Content);
+        Title_Content.style.fontFamily = "'Pixelify Sans', sans-serif"
+        Title_Content.style.backgroundColor = "rgba(0,0,0,0)"
+        Title_Content.style.width = "100%"
+        Title_Content.style.height = "100vh"
+        Title_Content.style.fontSize = "115px"
+        Title_Content.style.color = "white"
+        Title_Content.style.position = "relative"
+        Title_Content.style.top = "0px"
+        Title_Content.style.margin = "0px auto"
+        Title_Content.style.textAlign = "center"
+        Title_Content.style.resize = "none"
+        var Title_Innertext = "Thanks For Viewing"
+
+        for (let i = 1; i <= Title_Innertext.length; i++) {
+            setTimeout(function () {
+                var Title_Innertext_Array = [Title_Innertext.substring(0, i)];
+                Title_Content.innerHTML = Title_Innertext_Array[0];
+            }, i * 50);
+        }
+
+        var Hint_Content = document.createElement('div');
+        Hint_Content.setAttribute('id', 'Hint_Content');
+        var body = document.getElementById('body')
+        body.appendChild(Hint_Content);
+        Hint_Content.style.fontFamily = "'Pixelify Sans', sans-serif"
+        Hint_Content.style.backgroundColor = "rgba(0,0,0,0)"
+        Hint_Content.style.width = "100%"
+        Hint_Content.style.height = "100vh"
+        Hint_Content.style.fontSize = "40px"
+        Hint_Content.style.color = "white"
+        Hint_Content.style.position = "relative"
+        Hint_Content.style.top = "-834px"
+        Hint_Content.style.margin = "0px auto"
+        Hint_Content.style.textAlign = "center"
+        Hint_Content.style.resize = "none"
+        var Hint_Innertext = "Tap the screen to see the final content"
+
+        for (let i = 1; i <= Hint_Innertext.length; i++) {
+            setTimeout(function () {
+                var Hint_Innertext_Array = [Hint_Innertext.substring(0, i)];
+                Hint_Content.innerHTML = Hint_Innertext_Array[0];
+            }, i * 50);
+        }
+
+
+        body.addEventListener("click", function () {
+            var Hint_Content = document.getElementById("Hint_Content")
+            body.removeChild(Hint_Content)
+            var Subtitle_Content = document.createElement('textarea');
+            Subtitle_Content.setAttribute('id', 'Subtitle_Content');
+            var Title_Content = document.getElementById('Title_Content')
+            Title_Content.appendChild(Subtitle_Content);
+            Subtitle_Content.style.fontFamily = "'Pixelify Sans', sans-serif"
+            Subtitle_Content.style.color = "white"
+            Subtitle_Content.style.backgroundColor = "rgba(0,0,0,0)"
+            Subtitle_Content.style.width = "100%"
+            Subtitle_Content.style.height = "100vh"
+            Subtitle_Content.style.fontSize = "40px"
+            Subtitle_Content.style.lineHeight = "1.25"
+            Subtitle_Content.style.position = "relative"
+            Subtitle_Content.style.top = "0px"
+            Subtitle_Content.style.borderColor = "rgba(0,0,0,0)"
+            Subtitle_Content.style.textAlign = "center"
+            Subtitle_Content.style.resize = "none"
+            Subtitle_Content.style.pointerEvents = "none"
+            var Subtitle_Innertext = "\"And the game was over and the player woke up from the dream.\nAnd the player began a new dream.\n---- A long dream of life, not the short dream of a game.\nAnd the player dreamed again, dreamed better.\n And the player was the universe.\n And the player was love.\nYou are the player.\nWake up.\"\n-----End Poem By Julian Gough-----"
+
+            for (let i = 1; i <= Subtitle_Innertext.length; i++) {
+                setTimeout(function () {
+                    var Subtitle_Innertext_Array = [Subtitle_Innertext.substring(0, i)];
+                    Subtitle_Content.innerHTML = Subtitle_Innertext_Array[0];
+                }, i * 100);
+            }
+
+        },)
+
+    </script>
+
+    <audio id="Background_Music" loop>
+        <source src="./Audio/Redeemer.mp3" type="audio/mpeg">
+        <!-- 引入背景音乐 -->
+    </audio>
+
+    <script>
+        var body = document.getElementById("body")
+        body.addEventListener("click", function () {
+            var Background_Music = document.getElementById("Background_Music")
+            Background_Music.play()
+        })
+
+    </script>
+
+</body>
+
+</html>

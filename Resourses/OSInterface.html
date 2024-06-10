@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSInterface</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <!-- 导入字体 -->
+
+    <style>
+        * {
+            background-color: rgb(41, 44, 51);
+        }
+    </style>
+    <!-- 使用全局选择器设定背景颜色 -->
+
+    <style>
+        #Title {
+            font-family: "Pixelify Sans", sans-serif;
+            color: white;
+            font-size: 40px;
+            text-align: center;
+        }
+    </style>
+    <!-- 更改标题字体  -->
+
+    <style>
+        @font-face {
+            font-family: Pixel_Font;
+            src: url(./Library/fusion-pixel-10px-monospaced-zh_hans.woff2);
+        }
+    </style>
+    <!-- 导入本地字体 -->
+
+    <style>
+        #Screen {
+            width: 1024px;
+            height: 768px;
+            background-image: url(./Library/Background.jpg);
+            background-size: cover;
+            padding: 0px;
+            margin: 0 auto;
+        }
+    </style>
+    <!-- 设定屏幕位置 -->
+
+    <style>
+        #MonitorMargin {
+            background-image: url(./Library/DisplayMargin.jpg);
+            background-position: center;
+            background-size: 134%;
+            width: 765px;
+            height: 511px;
+            position: relative;
+            left: 131px;
+            top: 131px;
+            margin: 0px;
+        }
+    </style>
+    <!-- 设置显示边界大小 -->
+
+    <style>
+        @keyframes Mouse_Hovering_Animation {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+    <!-- 设定按钮悬停动画 -->
+
+    <style>
+        @keyframes Mouse_leaving_Animation {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+    <!-- 设定按钮离开动画 -->
+
+    <style>
+        #File_Button {
+            opacity: 0;
+            background-image: url(./Library/Anti_Background.jpg);
+            background-size: 1854%;
+            background-position: -184px -132px;
+            width: 55px;
+            height: 28px;
+            position: relative;
+            left: 55px;
+            top: 2px;
+            float: left;
+        }
+    </style>
+    <!-- File按钮属性 -->
+
+    <style>
+        #Edit_Button {
+            opacity: 0;
+            background-image: url(./Library/Anti_Background.jpg);
+            background-size: 1854%;
+            background-position: -239px -132px;
+            width: 55px;
+            height: 28px;
+            position: relative;
+            left: 55px;
+            top: 2px;
+            float: left
+        }
+    </style>
+    <!-- Edit按钮属性 -->
+
+    <style>
+        #View_Button {
+            opacity: 0;
+            background-image: url(./Library/Anti_Background.jpg);
+            background-size: 1500%;
+            background-position: -293px -131px;
+            width: 68px;
+            height: 28px;
+            position: relative;
+            left: 55px;
+            top: 2px;
+            float: left
+        }
+    </style>
+    <!-- View按钮属性 -->
+
+    <style>
+        #Special_Button {
+            opacity: 0;
+            background-image: url(./Library/Anti_Background.jpg);
+            background-size: 1134%;
+            background-position: -357px -130px;
+            width: 89px;
+            height: 28px;
+            position: relative;
+            left: 55px;
+            top: 2px;
+            float: left
+        }
+    </style>
+    <!-- Special按钮属性 -->
+
+    <style>
+        #System_Disk_Button {
+            opacity: 0;
+            background-image: url(./Library/Anti_Background.jpg);
+            background-size: 1007%;
+            background-position: -771px -169px;
+            width: 100px;
+            height: 70px;
+            position: relative;
+            left: 389px;
+            top: 42px;
+            float: left
+        }
+    </style>
+    <!-- System_Disk按钮属性 -->
+
+    <style>
+        #Welcome_Button {
+            opacity: 0;
+            background-image: url(./Library/Anti_Background.jpg);
+            background-size: 1008%;
+            background-position: -773px -263px;
+            width: 100px;
+            height: 70px;
+            position: relative;
+            left: 290px;
+            top: 139px;
+            float: left;
+        }
+    </style>
+    <!-- Welcome按钮属性 -->
+
+    <style>
+        #Infinite_HD_Button {
+            opacity: 0;
+            background-image: url(./Library/Anti_Background.jpg);
+            background-size: 1008%;
+            background-position: -773px -356px;
+            width: 100px;
+            height: 70px;
+            position: relative;
+            left: 190px;
+            top: 233px;
+            float: left
+        }
+    </style>
+    <!-- Infinite_HD按钮属性 -->
+
+    <style>
+        #Trash_Button {
+            opacity: 0;
+            background-image: url(./Library/Anti_Background.jpg);
+            background-size: 1008%;
+            background-position: -771px -545px;
+            width: 100px;
+            height: 70px;
+            position: relative;
+            left: 88px;
+            top: 425px;
+            float: left
+        }
+    </style>
+    <!-- Trash按钮属性 -->
+
+    <style>
+        #Edit_Button_Menu_Window_Content{
+            color:black !important;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="Title">Your Computer</p>
+    <!-- 页首提示语 -->
+    <div id="Screen">
+        <div id="MonitorMargin">
+
+            <div id="File_Button"></div>
+            <!-- File按钮 -->
+
+            <div id="Edit_Button"></div>
+            <!-- Edit按钮 -->
+
+            <div id="View_Button"></div>
+            <!-- View按钮 -->
+
+            <div id="Special_Button"></div>
+            <!-- Special按钮 -->
+
+            <div id="System_Disk_Button"></div>
+            <!-- System_Disk按钮 -->
+            
+            <div id="Welcome_Button"></div>
+            <!-- Welcome按钮 -->
+
+            <div id="Infinite_HD_Button"></div>
+            <!-- Infinite_HD按钮 -->
+
+            <div id="Trash_Button"></div>
+            <!-- Trash按钮 -->
+
+        </div>
+        <!-- 所有显示内容均位于此显示边界内！ -->
+    </div>
+    <!-- 电脑屏幕 -->
+    
+    <div class = "Window_Layers" id = "File_Window"></div>
+    <!-- File窗口 -->
+
+    <div id = "Edit_Window"></div>
+    <!-- Edit窗口 -->
+
+    <div id = "View_Window"></div>
+    <!-- View窗口 -->
+
+    <div id = "Special_Window"></div>
+    <!-- Special窗口 -->
+
+    <div id = "System_Disk_Window"></div>
+    <!-- System_Disk窗口 -->
+
+    <div id = "Welcome_Window"></div>
+    <!-- Welcome窗口 -->
+
+    <div id = "Infinite_HD_Window"></div>
+    <!-- Infinite_HD窗口 -->
+
+    <div id = "Trash_Window"></div>
+    <!-- Trash窗口 -->
+
+    <script src="Effects.js"></script>
+    <!-- 引入Javascript脚本 -->
+
+
+</body>
+
+</html>

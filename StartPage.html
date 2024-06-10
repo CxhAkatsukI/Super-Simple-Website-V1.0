@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StartPage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <!-- 导入线上字体 -->
+
+    <style>
+        @keyframes Background_Manifesting_Animation {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+    <!-- 设定背景出现动画 -->
+
+    <style>
+        @keyframes Background_Fading_Animation {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+    <!-- 设定背景消失动画 -->
+
+    <style>
+        @font-face {
+            font-family: Pixel_Font;
+            src: url(./Resourses/Library/fusion-pixel-10px-monospaced-zh_hans.woff2);
+        }
+    </style>
+    <!-- 导入本地字体 -->
+
+    <style>
+        #body {
+            background-image: url(./Resourses/Library/Plot_Pics/Sky\ And\ The\ Sea.png);
+            background-size: 100%;
+        }
+    </style>
+
+</head>
+
+<body id="body">
+    <script>
+        var Title_Content = document.createElement('div');
+        Title_Content.setAttribute('id', 'Title_Content');
+        var body = document.getElementById('body')
+        body.appendChild(Title_Content);
+        Title_Content.style.fontFamily = "'Pixelify Sans', sans-serif"
+        Title_Content.style.backgroundColor = "rgba(0,0,0,0)"
+        Title_Content.style.width = "100%"
+        Title_Content.style.height = "768px"
+        Title_Content.style.fontSize = "115px"
+        Title_Content.style.position = "relative"
+        Title_Content.style.top = "200px"
+        Title_Content.style.margin = "0px auto"
+        Title_Content.style.textAlign = "center"
+        Title_Content.style.resize = "none"
+        var Title_Innertext = "A Dreamer's Dream"
+
+        for (let i = 1; i <= Title_Innertext.length; i++) {
+            setTimeout(function () {
+                var Title_Innertext_Array = [Title_Innertext.substring(0, i)];
+                Title_Content.innerHTML = Title_Innertext_Array[0];
+            }, i * 50);
+        }
+
+        var Hint_Content = document.createElement('div');
+        Hint_Content.setAttribute('id', 'Hint_Content');
+        var body = document.getElementById('body')
+        body.appendChild(Hint_Content);
+        Hint_Content.style.fontFamily = "'Pixelify Sans', sans-serif"
+        Hint_Content.style.backgroundColor = "rgba(0,0,0,0)"
+        Hint_Content.style.width = "100%"
+        Hint_Content.style.height = "100vh"
+        Hint_Content.style.fontSize = "40px"
+        Hint_Content.style.color = "black"
+        Hint_Content.style.position = "relative"
+        Hint_Content.style.top = "-400px"
+        Hint_Content.style.margin = "0px auto"
+        Hint_Content.style.textAlign = "center"
+        Hint_Content.style.resize = "none"
+        var Hint_Innertext = "Tap the screen to turn on background music"
+
+        for (let i = 1; i <= Hint_Innertext.length; i++) {
+            setTimeout(function () {
+                var Hint_Innertext_Array = [Hint_Innertext.substring(0, i)];
+                Hint_Content.innerHTML = Hint_Innertext_Array[0];
+            }, i * 50);
+        }
+
+        body.addEventListener("click", function () {
+            body.removeChild(Hint_Content);
+            var Subtitle_Content = document.createElement('textarea');
+            Subtitle_Content.setAttribute('id', 'Subtitle_Content');
+            var Title_Content = document.getElementById('Title_Content')
+            Title_Content.appendChild(Subtitle_Content);
+            Subtitle_Content.style.fontFamily = "'Pixel_Font', sans-serif"
+            Subtitle_Content.style.backgroundColor = "rgba(0,0,0,0)"
+            Subtitle_Content.style.width = "100%"
+            Subtitle_Content.style.height = "768px"
+            Subtitle_Content.style.fontSize = "30px"
+            Subtitle_Content.style.lineHeight = "1.25"
+            Subtitle_Content.style.position = "relative"
+            Subtitle_Content.style.top = "0px"
+            Subtitle_Content.style.borderColor = "rgba(0,0,0,0)"
+            Subtitle_Content.style.textAlign = "center"
+            Subtitle_Content.style.resize = "none"
+            Subtitle_Content.style.pointerEvents = "none"
+            var Subtitle_Innertext = "一觉醒来\n感觉世界和以前不一样了\n但你也说不好究竟发生了什么\n你的电脑屏幕亮了\n似乎\n想要告诉你什么"
+
+            for (let i = 1; i <= Subtitle_Innertext.length; i++) {
+                setTimeout(function () {
+                    var Subtitle_Innertext_Array = [Subtitle_Innertext.substring(0, i)];
+                    Subtitle_Content.innerHTML = Subtitle_Innertext_Array[0];
+                }, i * 50);
+            }
+
+            setTimeout(function () {
+                var Start_Button = document.createElement('div');
+                Start_Button.setAttribute('id', 'Start_Button');
+                var body = document.getElementById('body')
+                body.appendChild(Start_Button);
+                Start_Button.style.fontFamily = "'Pixelify Sans', sans-serif"
+                Start_Button.style.color = "white"
+                Start_Button.style.backgroundColor = "Black"
+                Start_Button.style.width = "200px"
+                Start_Button.style.height = "40px"
+                Start_Button.style.fontSize = "30px"
+                Start_Button.style.position = "relative"
+                Start_Button.style.top = "-167px"
+                Start_Button.style.margin = "0px auto"
+                Start_Button.style.textAlign = "center"
+                Start_Button.style.resize = "none"
+                Start_Button.innerHTML = "Tap To Start"
+                Start_Button.addEventListener("click", function () {
+                    var audio = document.getElementById("Background_Music");
+                                // 将音量逐渐减小至0，音乐淡出
+                                var fadeOutInterval = setInterval(function () {
+                                    if (audio.volume > 0.1) {
+                                        audio.volume = Math.abs(audio.volume - 0.1); // 每次减小音量的值
+                                    } else {
+                                        clearInterval(fadeOutInterval);
+                                        audio.pause(); // 停止音乐
+                                        window.location.href = "./Resourses/OSInterface.html"; // 跳转到下一个页面
+                                    }
+                                }, 200); // 音乐淡出的间隔时间
+
+
+                    body.style.animation = "Background_Fading_Animation 2.5s linear 0s 1"
+                })
+
+            }, 3000)
+
+            setTimeout(function () {
+                var Reminder = document.createElement('textarea');
+                Reminder.setAttribute('id', 'Reminder');
+                var body = document.getElementById('body')
+                body.appendChild(Reminder);
+                Reminder.style.fontFamily = "'Pixel_Font', sans-serif"
+                Reminder.style.backgroundColor = "rgba(0,0,0,0)"
+                Reminder.style.borderColor = "rgba(0,0,0,0)"
+                Reminder.style.width = "100%"
+                Reminder.style.height = "100vh"
+                Reminder.style.fontSize = "25px"
+                Reminder.style.lineHeight = "1.25"
+                Reminder.style.color = "white"
+                Reminder.style.textShadow = "1px 1px 1px rgba(0,0,0,0.5)"
+                Reminder.style.position = "relative"
+                Reminder.style.top = "-100px"
+                Reminder.style.margin = "0px auto"
+                Reminder.style.textAlign = "center"
+                Reminder.style.resize = "none"
+                Reminder.style.pointerEvents = "none"
+                var Reminder_Innertext = "Tips\n玩家您好，建议您使用Chrome浏览器游玩本作，Edge浏览器亦可。『绝不建议』使用Safari浏览器，否则将导致音频和动画无法正常加载\n如果屏幕上的内容不适合您的显示屏尺寸，请通过上方地址栏旁边的缩放功能缩放到合适的显示尺寸以提升游戏体验\n本作含有大量音乐内容，建议调大音量或佩戴耳机食用。不要着急继续游戏，尽情的欣赏音乐吧"
+
+                for (let i = 1; i <= Reminder_Innertext.length; i++) {
+                    setTimeout(function () {
+                        var Reminder_Innertext_Array = [Reminder_Innertext.substring(0, i)];
+                        Reminder.innerHTML = Reminder_Innertext_Array[0];
+                    }, i * 50);
+                }
+            }, 3500)
+
+        })
+
+    </script>
+
+    <audio id="Background_Music" loop>
+        <source src="./Resourses/Library/Audio/Eliza's Theme.mp3" type="audio/mpeg">
+        <!-- 引入背景音乐 -->
+    </audio>
+
+    <script>
+        var body = document.getElementById("body")
+        body.addEventListener("click", function () {
+            var Background_Music = document.getElementById("Background_Music")
+            Background_Music.play()
+        })
+
+    </script>
+
+
+</body>
+
+</html>

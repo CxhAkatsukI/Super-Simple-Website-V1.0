@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final_Stage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <!-- 导入线上字体 -->
+    <style>
+        body {
+            background-image: url(./Plot_Pics/Black_Background.png);
+            /* 默认背景图片 */
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            width: 100%;
+        }
+    </style>
+    <style>
+        #Final_Stage_Text_Container {
+            background-color: rgba(0, 0, 0, 0);
+            color: black;
+            width: 700px;
+            height: 200px;
+            font-size: 22px;
+            text-align: center;
+            position: relative;
+            margin: 0px auto;
+            top: -312px;
+        }
+    </style>
+    <style>
+        #Final_Stage_Text {
+            background-color: rgba(0, 0, 0, 0.2);
+            color: white;
+            width: 700px;
+            height: 200px;
+            font-family: 'Pixel_Font', sans-serif;
+            font-size: 30px;
+            text-align: center;
+            position: relative;
+            border-color: rgba(0, 0, 0, 0);
+            resize: none;
+            pointer-events: none;
+        }
+    </style>
+
+    <style>
+        #Final_Stage_Background {
+            background-color: rgba(0, 0, 0);
+            color: black;
+            width: 100%;
+            height: 100%;
+            font-size: 22px;
+            text-align: center;
+            position: relative;
+            margin: 0px auto;
+            top: auto
+        }
+    </style>
+    <!-- 设置背景大小 -->
+
+    <style>
+        #changeBackgroundButton {
+            width: 200px;
+            height: 40px;
+            font-size: 30px;
+            font-family: 'Pixelify Sans', sans-serif;
+            color: white;
+            background-color: rgba(0, 0, 0, 0);
+            border-color: white;
+            border: 3px solid;
+            position: relative;
+            float: left;
+            top: 0px;
+            margin: 0px auto;
+            text-align: center;
+            z-index: 1;
+        }
+    </style>
+
+    <style>
+        #BackButton {
+            width: 200px;
+            height: 40px;
+            font-size: 30px;
+            font-family: 'Pixelify Sans', sans-serif;
+            color: white;
+            background-color: rgba(0, 0, 0, 0);
+            border-color: white;
+            border: 3px solid;
+            position: relative;
+            float: left;
+            top: 0px;
+            margin: 0px 30px;
+            text-align: center;
+            z-index: 1;
+        }
+    </style>
+
+    <style>
+        #ButtonContainer {
+            width: 200px;
+            height: 50px;
+            font-size: 30px;
+            font-family: 'Pixelify Sans', sans-serif;
+            color: white;
+            background-color: rgba(0, 0, 0, 0);
+            border-color: rgba(0, 0, 0, 0);
+            border: none;
+            position: relative;
+            top: -360px;
+            margin: 0px auto;
+            text-align: center;
+            z-index: 1;
+        }
+    </style>
+
+    <style>
+        @keyframes Background_Manifesting_Animation {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+    <!-- 设定背景出现动画 -->
+
+    <style>
+        @keyframes Background_Fading_Animation {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 0;
+            }
+        }
+    </style>
+    <!-- 设定背景消失动画 -->
+
+    <style>
+        @font-face {
+            font-family: Pixel_Font;
+            src: url(./fusion-pixel-10px-monospaced-zh_hans.woff2);
+        }
+    </style>
+    <!-- 导入本地字体 -->
+
+    <style>
+        #Final_Stage_Background {
+            transition: background-image 0.8s ease-in-out;
+            background-size: cover;
+            /* background-image: url(./Plot_Pics/And\ you\ wake\ up.png); */
+            /* background-image: url(./); */
+        }
+    </style>
+    <!-- 添加过渡效果  -->
+
+</head>
+
+<body id="body">
+
+
+    <div id="Final_Stage_Background"></div>
+    <div id="Final_Stage_Text_Container"><textarea id="Final_Stage_Text"></textarea></div>
+    <div id="ButtonContainer">
+        <!-- <div id="BackButton">Back</div> -->
+        <div id="changeBackgroundButton">Next</div>
+    </div>
+
+    <audio id="Background_Music" loop>
+        <source src="./Audio/New_Life.mp3" type="audio/mpeg">
+        <!-- 引入背景音乐 -->
+    </audio>
+
+
+    <!-- <script>
+        // 预定义图片路径数组
+        var imagePaths = ["./Plot_Pics/Black_Background.png","./Plot_Pics/And\ you\ wake\ up.png","./Plot_Pics/Black_Background.png"]; // 这里是预定义的图片路径
+        var texts = ["感谢游玩","你醒了","世界真的『变』了"]
+
+        // 获取按钮元素
+        var changeBackgroundButton = document.getElementById("changeBackgroundButton");
+
+        // 定义计数器，用于循环遍历图片文字路径数组
+        var imagePathIndex = 0;
+        var textsIndex = 0;
+
+        // 添加点击事件处理程序
+        changeBackgroundButton.addEventListener("click", function () {
+            var Final_Stage_Background = document.getElementById('Final_Stage_Background');
+            var Final_Stage_Text = document.getElementById('Final_Stage_Text')
+            // Final_Stage_Text.style.fontFamily = "'Pixel_Font', sans-serif"
+            for (let i = 1; i <= texts[textsIndex].length; i++) {
+                setTimeout(function () {
+                    texts_Varying_Text = texts[textsIndex];
+                    var texts_Array = [texts_Varying_Text.substring(0, i)];
+                    Final_Stage_Text.innerHTML = texts_Array[0];
+                }, i * 100);
+            }
+
+
+            // 切换背景图片
+            Final_Stage_Background.style.backgroundImage = "url('" + imagePaths[imagePathIndex] + "')";
+
+            // 延迟一段时间后再添加类，以触发过渡效果
+            setTimeout(function () {
+                Final_Stage_Background.classList.add("backgroundFade");
+            }, 100);
+
+            // 增加计数器以切换到下一个图片路径
+            imagePathIndex = (imagePathIndex + 1) % imagePaths.length;
+            textsIndex = (textsIndex + 1) % texts.length;
+        });
+    </script> -->
+
+    <script>
+        var Final_Stage_Text = document.getElementById('Final_Stage_Text');
+        var imagePaths = ["./Plot_Pics/Black_Background.png", "./Plot_Pics/And\ you\ wake\ up.png", "./Plot_Pics/Black_Background.png", "./Plot_Pics/This\ was\ supposed\ to\ be\ my\ home.png", "./Plot_Pics/But\ where\ is\ this.png", "./Plot_Pics/Black_Background.png", "./Plot_Pics/This\ was\ supposed\ to\ be\ my\ classroom.png", "./Plot_Pics/My\ Classroom\ Now.png", "./Plot_Pics/Black_Background.png", "./Plot_Pics/Black_Background.png", "./Plot_Pics/Black_Background.png", "./Plot_Pics/the\ boy\ on\ the\ beach.png", "./Plot_Pics/the\ boy\ on\ the\ beach.png", "./Plot_Pics/The\ boy\ and\ the\ girl.png", "./Plot_Pics/The\ boy\ and\ the\ girl.png", "./Plot_Pics/The\ boy\ and\ the\ girl.png", "./Plot_Pics/The\ boy\ and\ the\ girl.png", "./Plot_Pics/The\ Sun\ Rise.png", "./Plot_Pics/The\ Sun\ Rise.png", "./Plot_Pics/The\ Sun\ Rise.png", "./Plot_Pics/The\ Sun\ Rise.png", "./Plot_Pics/The\ Sun\ Rise.png", "./Plot_Pics/The\ Sun\ Rise.png", "./Plot_Pics/The\ Sun\ Rise.png", "./Plot_Pics/The\ Sun\ Rise.png", "./Plot_Pics/Black_Background.png", "./Plot_Pics/Mountain\ Climbing.png", "./Plot_Pics/Industrial\ City.png", "./Plot_Pics/Black_Background.png", "./Plot_Pics/Flower\ And\ Grass\ Land.png", "./Plot_Pics/Proposal.png", "./Plot_Pics/Proposal_Painting.png", "./Plot_Pics/Black_Background.png", "./Plot_Pics/Black_Background.png", "./Plot_Pics/the\ ill\ man.png", "./Plot_Pics/The\ ill\ man\ and\ the\ boy.png", "./Plot_Pics/The\ ill\ man\ and\ the\ boy.png", "./Plot_Pics/The\ ill\ man\ and\ the\ boy.png", "./Plot_Pics/The\ ill\ man\ and\ the\ boy.png", "./Plot_Pics/The\ ill\ man\ and\ the\ boy.png", "./Plot_Pics/The\ ill\ man\ and\ the\ boy.png", "./Plot_Pics/The\ ill\ man\ and\ the\ boy.png", "./Plot_Pics/The\ ill\ man\ and\ the\ boy.png", "./Plot_Pics/The\ ill\ man\ and\ the\ boy.png", "./Plot_Pics/The\ ill\ man\ and\ the\ boy.png", "./Plot_Pics/The\ ill\ man\ and\ the\ boy.png", "./Plot_Pics/The\ ill\ man\ and\ the\ boy.png", "./Plot_Pics/The\ ill\ man\ and\ the\ boy.png", "./Plot_Pics/The\ ill\ man\ and\ the\ boy.png", "./Plot_Pics/Black_Background.png", "./Plot_Pics/Black_Background.png", "./Plot_Pics/Black_Background.png", "./Plot_Pics/Black_Background.png", "./Plot_Pics/Black_Background.png"]
+        // 获取按钮元素
+        var changeBackgroundButton = document.getElementById("changeBackgroundButton");
+        var texts = ["于是，你『醒』了", "世界真的『变』了", "……", "这是你印象中的『家』", "『Matrix』把它变成了这样\n这究竟是哪里？", "……", "到曾经的学校看看吧", "学校\n怎么成了这样", "哈 好一个『Matrix』\n所有『现实世界』的东西，在『Matrix』里都有映像\n这线性映射\n还是个双射", "可是这里的东西\n不属于你的记忆\n也不承载你的悲欢\n……", "这映射\n商掉了\n所有『现实世界』里对你而言重要的东西", "如果失去了所有重要的东西\n你的身心又将在何处安放呢", "You: 果然世界\n还是毁灭了啊", "……", "You: 你\n也是迷失在『Matrix』中的人吗？", "The Girl: ？", "You: ……", "这里的日出和海风\n很真实\n和那个世界一样", "You: 假如人生只是一场漫无止境的梦境\n没有真实而只有虚幻\n你会把灵魂寄托在何处呢", "The Girl: 他们说\n真实不过是人的大脑产生的电信号罢了", "The Girl: 什么是真实的\n取决于你相信什么", "The Girl: 即便这个世界的一切\n包括自己\n都不过是梦中的幻影", "the Girl: 但就像这日出和海风一样\n在某人的某一场梦中\n他们真真切切的存在着\n依然散发着难以言喻的美丽", "the Girl: 或许\n真实并非在于存在与否\n而在于你如何感知和体验。", "the Girl: 或许\n你的意义存在于你自己\n靠着意念迈过心灵中的那条界线\n你便不必再在世界中寻找自己——世界在你", "……", "You: 或许矩阵是一场梦", "You: 或许『现实世界』才是", "没人说得清楚", "You: 但是\n这世界孕育了我\n将我带到光明中\n又将要在我开始理解它的时候将我带走。", "You: 无论如何\n我希望活出一个和世界一样美丽\n一样令人惊叹的人生。", "You(Elderly): 这一点\n过『多少年』\n都不会变", "……", "终于\n梦该醒了", "You(Dying): 咳嗽声", "You(Dying): 你是谁", "The Boy: 我就是引导你来到这个世界的男孩\n我是一切你认为不是你的东西\n你也可以说，我就是这里的『Universe』", "You(Dying): 那么\n这一切都是一场梦\n对吗", "The Boy: ……", "You(Dying): 你来就是要告诉我这些？", "The Boy: 每一个『Matrix』中的人在最后都会得到真相", "You(Dying): 但这真的是真相吗？", "The Boy: ……", "The Boy: 我该走了", "You(Dying): 等等", "You(Dying): 谢谢你", "The Boy: 为什么\n很少有人谢我", "You(Dying): 你为我找到了一片属于自己的宁静之地\n让我的灵魂得以栖息\n我宁愿把这当作真实。", "You(Dying): 这对于一个『人类』而言\n便足够了", "The Boy: 准备好醒来了吗？", "You(Dying): ……", "The Boy: 那\n我们一起走吧", "", ""];
+        var textsIndex = 0;
+        var imagePathIndex = 0;
+
+        function displayText(index, text) {
+            if (index <= text.length) {
+                Final_Stage_Text.innerHTML = text.substring(0, index);
+                setTimeout(function () {
+                    displayText(index + 1, text);
+                }, 100);
+            }
+        }
+
+        changeBackgroundButton.addEventListener("click", function () {
+            var Final_Stage_Background = document.getElementById('Final_Stage_Background');
+            Final_Stage_Background.style.backgroundImage = "url('" + imagePaths[imagePathIndex] + "')";
+            setTimeout(function () {
+                Final_Stage_Background.classList.add("backgroundFade");
+            }, 100);
+
+            displayText(0, texts[textsIndex]);
+            imagePathIndex = (imagePathIndex + 1) % imagePaths.length;
+            textsIndex = (textsIndex + 1) % texts.length;
+            if ((textsIndex + 1) == texts.length) {
+                var targetURL = "./FinalPage.html";
+                window.location.href = targetURL;
+            }
+
+            if (textsIndex >= 1) {
+                if (document.getElementById("BackButton") == null) {
+                    var BackButton = document.createElement("div");
+                    var ButtonContainer = document.getElementById("ButtonContainer")
+                    BackButton.id = "BackButton"
+                    BackButton.innerHTML = "Back"
+                    ButtonContainer.insertBefore(BackButton, ButtonContainer.firstChild)
+                    ButtonContainer.style.width = "500px"
+
+                }
+            }
+            // 返回按钮的创建
+            if (textsIndex != 0) {
+                var BackButton = document.getElementById("BackButton");
+                if (!BackButton.hasEventListener) {
+                    BackButton.addEventListener("click", function () {
+                        var Final_Stage_Background = document.getElementById('Final_Stage_Background');
+                        Final_Stage_Background.style.backgroundImage = "url('" + imagePaths[Math.max((imagePathIndex - 2), 0)] + "')";
+                        setTimeout(function () {
+                            Final_Stage_Background.classList.add("backgroundFade");
+                        }, 100);
+
+                        displayText(0, texts[Math.max((textsIndex - 2), 0)]);
+                        imagePathIndex = Math.abs(imagePathIndex - 1)
+                        textsIndex = Math.abs(textsIndex - 1)
+                        console.log(textsIndex)
+                    });
+                    BackButton.hasEventListener = true;
+                }
+            }
+
+            if (textsIndex >= 1) {
+                var Background_Music = document.getElementById("Background_Music")
+                Background_Music.play()
+                if (textsIndex >= texts.length - 2) {
+                    function fadeOutMusic() {
+                        let volume = Background_Music.volume;
+                        const fadeOutInterval = setInterval(function () {
+                            volume -= 0.05; // 每次递减音量的值
+                            if (volume <= 0) {
+                                volume = 0;
+                                clearInterval(fadeOutInterval); // 清除定时器
+                                Background_Music.pause(); // 暂停音乐播放
+                            }
+                            Background_Music.volume = volume; // 设置音量
+                        }, 200); // 每200毫秒递减一次音量
+                    }
+                    fadeOutMusic()
+                }
+            }
+
+        });
+
+
+    </script>
+
+    <script>
+        window.onload = function () {
+            if (!sessionStorage.getItem('hasRefreshed')) {
+                sessionStorage.setItem('hasRefreshed', 'true');
+                location.reload(); // 在页面加载后刷新页面
+            }
+        };
+    </script>
+
+</body>
+
+</html>

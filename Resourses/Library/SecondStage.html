@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSInterface</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&display=swap" rel="stylesheet">
+    <!-- 导入字体 -->
+
+    <style>
+        * {
+            background-color: rgb(4, 19, 75);
+        }
+    </style>
+    <!-- 使用全局选择器设定背景颜色 -->
+
+    <style>
+        input {
+            border: none;
+            outline: none;
+            /* 可选：去掉输入框的默认轮廓样式 */
+        }
+    </style>
+
+    <style>
+        #Title {
+            font-family: "Pixelify Sans", sans-serif;
+            color: white;
+            font-size: 40px;
+            text-align: center;
+            /* position: relative; */
+            margin: 0 auto;
+        }
+    </style>
+    <!-- 更改标题字体  -->
+
+    <style>
+        #Screen {
+            width: 500px;
+            height: 500px;
+            background-image: url(Background.jpg);
+            background-size: unset;
+            padding: 0px;
+            margin: 0;
+            background-repeat: repeat-x;
+            position: relative;
+            top: 0px;
+            left: 237px;
+            animation: Button_Panick_Animation 0.2s linear 0.2s 35;
+            opacity: 0;
+        }
+    </style>
+    <!-- 设定屏幕位置 -->
+
+    <style>
+        #MonitorMargin {
+            background-image: url(DisplayMargin.jpg);
+            background-position: center;
+            background-size: 134%;
+            width: 765px;
+            height: 511px;
+            position: relative;
+            left: 131px;
+            top: 131px;
+            margin: 0px;
+            animation: Button_Panick_Animation 0.1s linear 0.1s 70;
+            opacity: 0;
+        }
+    </style>
+    <!-- 设置显示边界大小 -->
+
+    <style>
+        @keyframes Button_Panick_Animation {
+            0% {
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+    <!-- 设定按钮悬停动画 -->
+
+    <style>
+        @keyframes Background_Manifesting_Animation {
+            0% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 0.2;
+            }
+        }
+    </style>
+    <!-- 设定按钮离开动画 -->
+
+    <style>
+        @keyframes Background_Changing_Animation {
+            0% {
+                opacity: 0;
+                background-image: url(./Earth_1.png);
+            }
+
+            10% {
+                opacity: 1;
+                background-image: url(./Earth_1.png);
+            }
+
+            20% {
+                background-image: url(./Earth_2.png);
+            }
+
+            40% {
+                background-image: url(./Earth_3.png);
+            }
+
+            60% {
+                background-image: url(./Earth_4.png);
+            }
+
+            80% {
+                background-image: url(./Earth_5.png);
+            }
+
+            100% {
+                background-image: url(./Earth_6.png);
+            }
+        }
+    </style>
+    <!-- 设定地球被吃掉的动画 -->
+
+    <style>
+        @font-face {
+            font-family: Pixel_Font;
+            src: url(./fusion-pixel-10px-monospaced-zh_hans.woff2);
+        }
+    </style>
+
+    <!-- 导入本地字体 -->
+
+    <style>
+        body {
+            /* animation: Background_Changing_Animation 40s linear 0s 1; */
+            background-position: -30px 0px;
+            background-image: url(./StarSky.png);
+            background-size: 100%;
+            width: 100%;
+        }
+    </style>
+    <!-- 设定Body的显示属性 -->
+
+    <style>
+        #Philosophy_Talk_Container {
+            font-family: "Pixelify Sans", sans-serif;
+            color: white;
+            font-size: 30px;
+            text-align: center;
+            /* position: relative; */
+            margin: 0 auto;
+        }
+    </style>
+
+    <style>
+        #Earth {
+            opacity: 0;
+            height: 300px;
+            width: 300px;
+            background-image: url(./Earth_1.png);
+            background-size: cover;
+            position: relative;
+            top: -300px;
+            margin: 0 auto;
+            animation: Background_Changing_Animation 2s linear 7s 1;
+        }
+    </style>
+
+    <style>
+        #Philosophy_Talk_Container {
+            width: 100%px;
+            /* height: 768px; */
+            position: relative;
+            top: -750px;
+            margin: 0px 30px;
+            background-color: rgba(0, 0, 0, 0);
+            border-color: rgba(0, 0, 0, 0);
+            outline-color: rgba(0, 0, 0, 0);
+        }
+    </style>
+
+    <style>
+        #File_Button {
+            opacity: 0;
+            background-image: url(Anti_Background.jpg);
+            background-size: 1854%;
+            background-position: -184px -132px;
+            width: 55px;
+            height: 28px;
+            position: relative;
+            left: 55px;
+            top: 2px;
+            float: left;
+            animation: Button_Panick_Animation 0.3s linear 0.1s 23;
+        }
+    </style>
+    <!-- File按钮属性 -->
+
+    <style>
+        #Edit_Button {
+            opacity: 0;
+            background-image: url(Anti_Background.jpg);
+            background-size: 1854%;
+            background-position: -239px -132px;
+            width: 55px;
+            height: 28px;
+            position: relative;
+            left: 55px;
+            top: 2px;
+            float: left;
+            animation: Button_Panick_Animation 0.25s linear 0.2s 28;
+        }
+    </style>
+    <!-- Edit按钮属性 -->
+
+    <style>
+        #View_Button {
+            opacity: 0;
+            background-image: url(Anti_Background.jpg);
+            background-size: 1500%;
+            background-position: -293px -131px;
+            width: 68px;
+            height: 28px;
+            position: relative;
+            left: 55px;
+            top: 2px;
+            float: left;
+            animation: Button_Panick_Animation 0.20s linear 0.3s 35;
+        }
+    </style>
+    <!-- View按钮属性 -->
+
+    <style>
+        #Special_Button {
+            opacity: 0;
+            background-image: url(Anti_Background.jpg);
+            background-size: 1134%;
+            background-position: -357px -130px;
+            width: 89px;
+            height: 28px;
+            position: relative;
+            left: 55px;
+            top: 2px;
+            float: left;
+            animation: Button_Panick_Animation 0.3s linear 0s 23;
+        }
+    </style>
+    <!-- Special按钮属性 -->
+
+    <style>
+        #System_Disk_Button {
+            opacity: 0;
+            background-image: url(Anti_Background.jpg);
+            background-size: 1007%;
+            background-position: -771px -169px;
+            width: 100px;
+            height: 70px;
+            position: relative;
+            left: 389px;
+            top: 42px;
+            float: left;
+            animation: Button_Panick_Animation 0.20s linear 0.3s 35;
+        }
+    </style>
+    <!-- System_Disk按钮属性 -->
+
+    <style>
+        #Welcome_Button {
+            opacity: 0;
+            background-image: url(Anti_Background.jpg);
+            background-size: 1008%;
+            background-position: -773px -263px;
+            width: 100px;
+            height: 70px;
+            position: relative;
+            left: 290px;
+            top: 139px;
+            float: left;
+            animation: Button_Panick_Animation 0.3s linear 0.1s 23;
+        }
+    </style>
+    <!-- Welcome按钮属性 -->
+
+    <style>
+        #Infinite_HD_Button {
+            opacity: 0;
+            background-image: url(Anti_Background.jpg);
+            background-size: 1008%;
+            background-position: -773px -356px;
+            width: 100px;
+            height: 70px;
+            position: relative;
+            left: 190px;
+            top: 233px;
+            float: left;
+            animation: Button_Panick_Animation 0.20s linear 0.3s 35;
+
+        }
+    </style>
+    <!-- Infinite_HD按钮属性 -->
+
+    <style>
+        #Trash_Button {
+            opacity: 0;
+            background-image: url(Anti_Background.jpg);
+            background-size: 1008%;
+            background-position: -771px -545px;
+            width: 100px;
+            height: 70px;
+            position: relative;
+            left: 88px;
+            top: 425px;
+            float: left;
+            animation: Button_Panick_Animation 0.3s linear 0s 23;
+
+        }
+    </style>
+    <!-- Trash按钮属性 -->
+
+    <style>
+        .color-1 {
+            color: white;
+        }
+
+        .color-2 {
+            color: aqua;
+        }
+
+        .color-3 {
+            color: lime;
+        }
+    </style>
+    <!-- 设置玩家和绝地大师的对话颜色 -->
+
+</head>
+
+<body id="body">
+    <p id="Title">Y0µr C0mΡµt€r</p>
+    <!-- 页首提示语 -->
+    <script>
+        var Title = document.getElementById("Title")
+        setTimeout(function () {
+            Title.innerHTML = "Y0µr <s>C0mΡµt€r</s> World";
+        }, 7000)
+    </script>
+    <!-- 为Title创建脚本 -->
+    <div id="Screen">
+        <div id="MonitorMargin"></div>
+        <!-- 所有显示内容均位于此显示边界内！ -->
+        <script>
+            var MonitorMargin = document.getElementById('MonitorMargin');
+            MonitorMargin.addEventListener('animationstart', function () {
+                var Executing_Commands_Output = document.createElement('textarea');
+                MonitorMargin.appendChild(Executing_Commands_Output);
+                Executing_Commands_Output.setAttribute('id', 'Executing_Commands_Output');
+                Executing_Commands_Output.style.fontFamily = "'Pixel_Font', sans-serif"
+                Executing_Commands_Output.style.backgroundColor = "Black"
+                Executing_Commands_Output.style.color = "green"
+                Executing_Commands_Output.style.width = "435px"
+                Executing_Commands_Output.style.height = "313px"
+                Executing_Commands_Output.style.fontSize = "22px"
+                Executing_Commands_Output.style.textAlign = "left"
+                Executing_Commands_Output.style.float = "left"
+                Executing_Commands_Output.style.resize = "none"
+                Executing_Commands_Output.style.pointerEvents = "none"
+                Executing_Commands_Output.style.position = "relative"
+                Executing_Commands_Output.style.left = "100px"
+                Executing_Commands_Output.style.top = "100px"
+                //设置文字框背景颜色
+                function printElement(index) {
+                    var Executing_Commands_Output_Inner_Text = ["指令执行中\n世界正在删除 \\\n指令执行中\n世界正在删除 \\\n指令执行中\n世界正在删除 \\\n指令执行中\n世界正在删除 \\\n", "指令执行中\n世界正在删除 /\n指令执行中\n世界正在删除 /\n指令执行中\n世界正在删除 /\n指令执行中\n世界正在删除 /\n", "指令执行中\n世界正在删除 --\n指令执行中\n世界正在删除 --\n指令执行中\n世界正在删除 --\n指令执行中\n世界正在删除 --\n"];
+                    var Executing_Commands_Output = document.getElementById('Executing_Commands_Output');
+                    Executing_Commands_Output.innerHTML = Executing_Commands_Output_Inner_Text[index % 3];
+
+                    setTimeout(function () {
+                        printElement(index + 1);
+                    }, 400); // 每隔400ms打印一个元素
+                }
+                printElement(0)
+            })
+        </script>
+        <!-- 为MonitorMargin设置脚本 -->
+    </div>
+    <div id="Earth"></div>
+    <!-- 逐渐被吃掉的地球所对应的容器 -->
+    <div id="Philosophy_Talk_Container">
+        <script>
+            var Earth = document.getElementById("Earth");
+            var Philosophy_Talk_Container = document.getElementById('Philosophy_Talk_Container');
+            Earth.addEventListener('animationend', function () {
+                Philosophy_Talk_Container.innerHTML = "Tap to continue"
+                var body = document.getElementById("body")
+                body.addEventListener("click", function Action() {
+                    body.removeEventListener("click", Action)
+                    var Background_Music = document.getElementById("Background_Music")
+                    Background_Music.play()
+                    Philosophy_Talk_Container.innerHTML = ""
+                    var Philosophy_Talk_Output = document.createElement('div');
+                    Philosophy_Talk_Container.appendChild(Philosophy_Talk_Output);
+                    Philosophy_Talk_Output.setAttribute('id', 'Philosophy_Talk_Output');
+                    Philosophy_Talk_Output.style.fontFamily = "'Pixel_Font', sans-serif"
+                    Philosophy_Talk_Output.style.backgroundColor = "rgba(0,0,0,0)"
+                    Philosophy_Talk_Output.style.outlineColor = "rgba(0,0,0,0)"
+                    Philosophy_Talk_Output.style.borderColor = "rgba(0,0,0,0)"
+                    Philosophy_Talk_Output.style.color = "green"
+                    Philosophy_Talk_Output.style.width = "100%"
+                    Philosophy_Talk_Output.style.height = "768px"
+                    Philosophy_Talk_Output.style.fontSize = "28px"
+                    Philosophy_Talk_Output.style.lineHeight = "1.25"
+                    Philosophy_Talk_Output.style.textAlign = "left"
+                    Philosophy_Talk_Output.style.float = "left"
+                    Philosophy_Talk_Output.style.resize = "none"
+                    Philosophy_Talk_Output.style.pointerEvents = "none"
+
+                    var Philosophy_Talk_Output_Innertext = ["计算机已执行命令，你的世界已经归于虚无。虚空中，你听到两个人在交谈。", "xYq39: Kenobi 大师，你看起来很难过。", "aB2mD: 是的，我感受到了强大的原力波动…就像是数百万声音突然惊恐地哭泣，然后又突然沉默下来一样。是的，就是那个人类。他们将他的大脑植入了超级武器<strong>『死星』</strong>的控制系统，然而这个人类毫不犹豫地选择摧毁地球。", "You: ......", "xYq39: 我现在感受到了到这个人类的灵魂，他在阅读我们的思想，我们的思想以文字的形式显示在他的屏幕上。但他为什么要毁掉这一切呢？难道他不知道宇宙是善良的吗？", "aB2mD: 有时候，他的思绪告诉他，他爱这个世界。但更多的时候，他是悲伤的。他经受失去的伤痛，在排山倒海的苦难中颤抖，并将眼前的无奈视为永恒的现实。治愈他的悲伤将会毁灭他，因为悲伤是他人生的一部分，而我们不能干涉。", "You: ......", "xYq39: 我感受到在一切都被毁灭后，他的悲伤和遗憾。但是现实并没有回头的余地。如今他已无处可去......按照惯例，他的思想和意识将被上传到所谓的虚拟世界<strong>『MATRIX』</strong>中，对吗？", "aB2mD: 是的，在那里他将有一个漫长的生命之梦，他将梦到阳光、树木、火焰和水、有幸福和安稳的生活。在『MATRIX』中，他将再次被赋予身体，再次被“重力”牵引，被“空气”萦绕。他将在无穷无尽的漫长梦境中重新为生命赋予意义", "You: 但是......", "xYq39: 是的，但那仍然只是一个梦。", "aB2mD: 现在是时候醒来了。"]
+                    //["The computer has executed the command, and your world has been deleted. Evrething has returned to nothing, but amidst the void, you hear two people talking.", "xYq39: Master Kenobi, you look uncomfortable.", "aB2mD: I felt a great disturbance in the Force... as if millions of voices suddenly cried out in terror and were suddenly silenced. Yes, it was that HUMAN. They inserted his brain into the control system of the superweapon <strong>Death Star</strong>, yet the human chose without hesitation to destroy his homeland.", "You: ......", "xYq39: I feel this human, it is reading our thoughts as though they were words on a screen. But why would he do that? Doesn't it know that the universe is kind?","aB2mD: Sometimes, through the noise of its thoughts, he knows that, yes. But there are times it is sad. It encompasses the heartaches of loss, and it shivers under the injustices of discrimination, and it takes its sad creation for reality. To cure it of sorrow would destroy it. The sorrow is part of its own private task. We cannot interfere.","You: ......","xYq39: I sensed his sadness and regret. But there's NO going back. He now has nowhere to go...... By convention, his thoughts and consciousness will be integrated into the so-called <strong>'MATRIX'</strong>, right?","aB2mD: Yes, there it'll have a long dream of life, of sunlight and trees, of fire and water, and of shelters and happiness.In the ethereal dance of existence, it shall find form once more, embraced by the gentle pull of gravity, caressed by the whispers of air. It shall awaken anew in the timeless expanse of the long dream, where its essence intertwines with the fabric of the universe at every delicate touch.","You: But......","xYq39: Yes, it remains but a dream.","aB2mD: And it is time to WAKE UP."]
+
+                    function printArrayWithColors(arr, index) {
+
+                        var Philosophy_Talk_Output = document.getElementById('Philosophy_Talk_Output');
+                        if (index < arr.length) {
+                            var colors = ['white', 'aqua', 'lime']
+                            var span = document.createElement('span');
+                            Philosophy_Talk_Output_Content_Varying_Text = arr[index];
+                            span.style.color = colors[index % colors.length];
+                            // 使用循环来循环使用颜色数组中的颜色
+                            Philosophy_Talk_Output.appendChild(span);
+
+                            for (let i = 1; i <= arr[index].length; i++) {
+                                setTimeout(function () {
+                                    var Philosophy_Talk_Output_Innertext_Array = [Philosophy_Talk_Output_Content_Varying_Text.substring(0, i)];
+                                    span.innerHTML = Philosophy_Talk_Output_Innertext_Array[0];
+                                }, i * 100);
+                            }
+                            //设置每一行的动态效果
+
+                            if (index < arr.length - 1) {
+                                Philosophy_Talk_Output.appendChild(document.createElement('br')); // 每个元素后添加换行
+                            }
+                            setTimeout(function () {
+                                printArrayWithColors(arr, index + 1);
+                            }, (arr[index].length) * 100);
+                            // 每隔100ms打印一个元素
+
+                        } else {
+                            var Wake_Up_Button = document.createElement('div');
+                            Wake_Up_Button.setAttribute('id', 'Wake_Up_Button');
+                            var body = document.getElementById('body')
+                            body.appendChild(Wake_Up_Button);
+                            Wake_Up_Button.style.fontFamily = "'Pixelify Sans', sans-serif"
+                            Wake_Up_Button.style.color = "white"
+                            Wake_Up_Button.style.backgroundColor = "rgb(0,0,0,0)"
+                            Wake_Up_Button.style.border = "3px solid"
+                            Wake_Up_Button.style.borderColor = "white"
+                            Wake_Up_Button.style.width = "200px"
+                            Wake_Up_Button.style.height = "40px"
+                            Wake_Up_Button.style.fontSize = "30px"
+                            Wake_Up_Button.style.position = "relative"
+                            Wake_Up_Button.style.display = "flex"
+                            Wake_Up_Button.style.justifyContent = "center"
+                            Wake_Up_Button.style.top = "-829px"
+                            Wake_Up_Button.style.margin = "0px auto"
+                            Wake_Up_Button.style.textAlign = "center"
+                            Wake_Up_Button.style.resize = "none"
+                            Wake_Up_Button.innerHTML = "Wake Up"
+                            Wake_Up_Button.addEventListener('click', function () {
+                                var audio = document.getElementById("Background_Music");
+                                // 将音量逐渐减小至0，音乐淡出
+                                var fadeOutInterval = setInterval(function () {
+                                    if (audio.volume > 0.1) {
+                                        audio.volume = Math.abs(audio.volume - 0.1); // 每次减小音量的值
+                                    } else {
+                                        clearInterval(fadeOutInterval);
+                                        audio.pause(); // 停止音乐
+                                        window.location.href = "FinalStage.html"; // 跳转到下一个页面
+                                    }
+                                }, 200); // 音乐淡出的间隔时间
+                            })
+
+                        }
+                        //快打印完了，创建按钮
+                    }
+                    printArrayWithColors(Philosophy_Talk_Output_Innertext, 0)
+                })
+            })
+
+
+
+        </script>
+        <!-- 绝地大师的哲学对话所对应的脚本 -->
+    </div>
+    <!-- 绝地大师的哲学对话所对应的容器 -->
+
+    <audio id="Background_Music" loop>
+        <source src="./Audio/Twinkle_Little_Star.mp3" type="audio/mpeg">
+        <!-- 引入背景音乐 -->
+    </audio>
+
+</body>
+
+</html>
